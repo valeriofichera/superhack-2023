@@ -11,3 +11,44 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .background--custom {
+        background-color: #fff8bd6d;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: hidden;
+        z-index: -2;
+        top: 0;
+        left: 0;
+      }
+      canvas#canvas {
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 60%;
+        transform: rotate(0deg) scale(2) translateY(-48%);
+        --gradient-color-1: #0022FF; 
+        --gradient-color-2: #FFFFFF; 
+        --gradient-color-3: #FFFFFF;  
+        --gradient-color-4: #FF0000;
+        --gradient-speed: 0.00001;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background--custom">
+      <canvas id="canvas" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/greentfrapp/pocoloco@minigl/minigl.js"></script>
+    <script>
+    var gradient = new Gradient();
+    gradient.initGradient("#canvas");
+    </script>
+  </body>
+</html>

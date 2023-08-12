@@ -7,6 +7,7 @@ import { WagmiConfig } from "wagmi";
 import { App } from "./App";
 import { chains, config } from "./wagmi";
 
+import './index.css'
 /**
  * Root providers and initialization of app
  * @see https://reactjs.org/docs/strict-mode.html
@@ -22,3 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </WagmiConfig>
   </React.StrictMode>,
 );
+
+
+
+import './index.css'

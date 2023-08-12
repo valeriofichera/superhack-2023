@@ -1,29 +1,38 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
+import "./App.css"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import { Attestooooooor } from "./components";
+import MainPage from "./MainPage"
+import AttestPage from "./AttestPage"
+import Callback from "./Callback"
+
+
 
 export function App() {
-  /**
-   * Wagmi hook for getting account information
-   * @see https://wagmi.sh/docs/hooks/useAccount
-   */
-  const { isConnected } = useAccount();
+
+
+  const router = createBrowserRouter([
+		{
+			path: "/",
+			element: <MainPage />,
+		},
+    {
+			path: "callback",
+			element: <Callback />,
+		},
+		{
+			path: "/Attest",
+			element: <AttestPage />,
+		},
+	])
+
 
   return (
     <>
-      <h1>OP Starter Project</h1>
 
-      {/** @see https://www.rainbowkit.com/docs/connect-button */}
-      <ConnectButton />
+       <div className="selection:bg-red-500/100 selection:text-slate-100/100">
+					<RouterProvider router={router} />
+				</div>
 
-      {isConnected && (
-        <>
-          <hr />
-          <Attestooooooor />
-          <hr />
-        </>
-      )}
     </>
   );
 }
