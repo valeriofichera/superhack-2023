@@ -1,7 +1,9 @@
 
 
  import Header from "./components/Header";
-    import { Attestooooooor } from "./components";
+ import { Attestooooooor } from "./components";
+import Covalent from "./components/Covalent";
+//  import Subgraph from "./components/Subgraph";
 
 
 function AttestPage() {
@@ -66,8 +68,10 @@ function AttestPage() {
     <div className="text-slate-500">
       <div className='font-bold'>Attestation Insights</div>
       <div className="font-base">
-          powered by The Graph
+          powered by Covalent API
       </div>
+      {/* <Subgraph/> */}
+      <Covalent/>
     </div>
   </div>
 
