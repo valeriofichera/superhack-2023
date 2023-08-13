@@ -5,6 +5,11 @@ import { defineConfig } from "vite";
  * @see https://vitejs.dev/config/
  */
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
+  },
   /**
    * Defines global constant replacments
    * @see https://vitejs.dev/config/shared-options.html#define

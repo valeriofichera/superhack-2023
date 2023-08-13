@@ -16,11 +16,11 @@ export function App() {
 			element: <MainPage />,
 		},
     {
-			path: "callback",
+			path: "/callback",
 			element: <Callback />,
 		},
 		{
-			path: "/Attest",
+			path: "/Attest/callback",
 			element: <AttestPage />,
 		},
 	])

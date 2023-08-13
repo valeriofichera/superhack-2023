@@ -27,7 +27,7 @@ export function Attestooooooor() {
   /**
    * @see https://reactjs.org/docs/hooks-state.html
    */
-  const [value, setValue] = useState("Hello world");
+  const [value, setValue] = useState("valeriofichera");
 
   /**
    * The key of the attestation
@@ -76,22 +76,31 @@ export function Attestooooooor() {
 
   return (
     <div>
-      <h2>Attestoooooor</h2>
-      <div>
-        Current attestation: {attestation ? parseString(attestation) : "none"}
-      </div>
-      <input
+      {/* <input
         disabled={isLoading}
         onChange={(e) => setValue(e.target.value)}
         value={value}
-      />
-      <button disabled={!write || isLoading} onClick={() => write?.()}>
-        Attest
-      </button>
+      /> */}
+
+
+      <div className='flex justify-center'>
+  <a disabled={!write || isLoading} onClick={() => write?.()}>
+    <div className="w-fit justify-center items-center gap-2 flex flex-row p-3 m-1 bg-slate-800 rounded-xl font-lg text-white hover:bg-slate-500 cursor-pointer">
+      <img src="https://storage.googleapis.com/ethglobal-api-production/organizations%2Fdxcvz%2Flogo%2F1686343659783_eas-logo.png" alt="" className="w-12 rounded-full"/>
+      <div>Create Attestation</div>
+    </div>
+  </a>
+</div>
+
       {isLoading && <ProcessingMessage hash={data?.hash} />}
       <div>
-        Gas fee: <span>{config.request?.gas?.toString()}</span>
+       ⛽️ Gas fee: <span>{config.request?.gas?.toString()}</span>
       </div>
+
+      <div>
+        last person attesting: {attestation ? parseString(attestation) : "none"}
+      </div>
+
     </div>
   );
 }

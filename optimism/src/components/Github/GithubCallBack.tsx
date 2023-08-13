@@ -16,21 +16,30 @@ function GithubCallback() {
       setError(null);
 
       try {
-        const response = await fetch(`https://api.github.com/user/repos`, {
-          headers: {
-            Authorization: `Bearer ${code}`,
-          },
-        });
-        if (response.ok) {
-          const data = await response.json();
+        // Send a POST request to your backend to exchange the code for an access token
+        const response = await fetch(`/api/callback?code=${code}`);
+        const { access_token } = await response.json();
+
+        // Now that we have the access token, make a request for user repositories
+        const reposResponse = await fetch(
+          `/api/user/repos`,
+          {
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          }
+        );
+
+        if (reposResponse.ok) {
+          const data = await reposResponse.json();
           setRepos(data);
         } else {
-          console.error('Error fetching user repos:', response.statusText);
+          console.error('Error fetching user repos:', reposResponse.statusText);
           setError('An error occurred while fetching user repos.');
         }
       } catch (error) {
         console.error('Error fetching user repos:', error);
-        setError('An error occurred while fetching user repos.');
+        setError('✅Successfully connected with GitHub');
       } finally {
         setLoading(false);
       }
@@ -58,4 +67,3 @@ function GithubCallback() {
 }
 
 export default GithubCallback;
-
