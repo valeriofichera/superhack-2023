@@ -26,7 +26,7 @@ const TransactionsComponent = () => {
 
   return (
     <div>
-      <h2>Contract Transactions</h2>
+      <h2>Contract Transaction</h2>
       <ul>
         {transactions.map((transaction) => (
           <li key={transaction.id}>
